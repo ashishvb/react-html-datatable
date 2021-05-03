@@ -1,0 +1,138 @@
+$color-primary: #222428;
+$color-secondary: #92949c;
+
+.dt{ 
+    color: $color-primary;
+    &__wrapper{
+        width: 100%;
+    }
+
+    &__header{
+        margin: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        font-size: 14px;
+        color: $color-secondary;
+
+        &-perpage{
+            select{
+                margin: 0px 0.4rem;
+            }
+        }
+
+        &-search{
+            input{
+                width: 100%;
+                max-width: 250px;
+                line-height: 1.2;
+                border: 1px solid $color-secondary;
+                border-radius: 4px;
+                padding: 8px;
+            }
+        }   
+    }
+
+    &__responsive{
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    &__table{
+        width: 100%;
+        border-collapse: collapse;
+
+        th, td{
+            padding: 16px 30px 16px 16px;
+            text-align: left;
+        }
+
+        th{
+            position: relative;
+            border-top: 1px solid $color-secondary;
+            border-bottom: 1px solid $color-secondary;
+            text-transform: capitalize;
+            letter-spacing: 0.8px;
+
+            &:hover{
+                cursor: pointer;
+            }
+
+        }
+
+        .sort{
+            &::before, &::after{
+                content: '';
+                position: absolute;
+                top: calc(50% - 4px);
+                right: 10px;
+                transform: translate(0, -50%);
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 6px 6px 6px;
+                border-color: transparent transparent $color-secondary transparent;
+                opacity: 0.5;
+            }
+
+            &::after{
+                top: calc(50% + 4px);
+                border-width: 6px 6px 0 6px;
+                border-color: $color-secondary transparent transparent transparent;
+            }
+            
+            &--asc{
+                &::after{
+                    content: unset;
+                    opacity: 1;
+                }
+            }
+
+            &--desc{
+                &::before{
+                    content: unset;
+                    opacity: 1;
+                }
+            }
+        }
+
+        tbody{
+            tr{
+                &:nth-child(odd){
+                    background-color: #f9f9f9;
+                }
+            }
+        }
+    }
+
+    &__footer{
+        margin: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        font-size: 16px;
+        color: $color-secondary;
+
+        &-pagination{
+            button{
+                font-weight: bold;
+                border: 1px solid $color-secondary;
+                border-radius: 4px;
+                margin: 0px 4px;
+                background: white;
+                padding: 7px 10px;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
+            .active{
+                background: #5A8DEE!important;
+                color: white;
+            }
+        }
+    }
+}
